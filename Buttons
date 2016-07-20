@@ -1,0 +1,35 @@
+from tkinter import *
+
+def no_click(event):
+    print('do not click me!You very stupid!')
+    buton = Button(root)
+    buton["text"] = "                  "
+    buton.bind('<Button-1>', good)
+    buton.pack()
+
+def click(event):
+    print('click other button')
+    but = Button(root, bg = 'red')
+    but["text"] = "don't click"
+    but.bind("<Button-1>", no_click)
+    but.pack()
+    
+    
+def good(event):
+    print('good. Now click next button')
+    button = Button(root, fg='red')
+    button["text"] = "atomic blast"
+    button.bind("<Button-1>", dead)
+    button.pack()
+
+    
+    
+def dead(event):
+    print('you did atomic blast, you dead!')
+    
+    
+root = Tk()
+b = Button(root)
+b["text"] = "click"
+b.bind("<Button-1>", click)
+b.pack()
